@@ -5,8 +5,10 @@ A program to compress a binary image (same width and height. PNG format) using Q
 STILL INCOMPLETE, BUT ALREADY FUNCTIONAL.
 
 
-Compiling:
+## Compiling
+```
+$ g++ -c --std=c++11 QuadTreeCompression.cpp BinaryImage.cpp TreeNode.cpp `libpng-config --cflags`
+$ g++ -o QuadTreeCompression QuadTreeCompression.o BinaryImage.o TreeNode.o \`libpng-config --ldflags\`
+```
 
-g++ -c --std=c++11 QuadTreeCompression.cpp BinaryImage.cpp TreeNode.cpp \`libpng-config --cflags\`
-
-g++ -o QuadTreeCompression QuadTreeCompression.o BinaryImage.o TreeNode.o \`libpng-config --ldflags\`
+The **png++**, a C++ wrapper for libpng, is needed: http://www.nongnu.org/pngpp/

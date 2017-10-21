@@ -10,13 +10,13 @@ using namespace png;
 
 static TreeNode getTreeFromImage(int x, int y, int size, BinaryImage im)
 {
-  int color = im.isSameColor(x, y, size);
+  int color = im.whichColor(x, y, size);
   if(color != NODEF) {
     TreeNode leaf(color);
     return leaf;
   }
   else {
-    /* LIC = Left Inferior Corner; RIC = Right // //; LSC = Left Superior Corner; RSC = Right // // */ 
+    /* LIC = Left Inferior Corner; RIC = Right // //; LSC = Left Superior Corner; RSC = Right // // */
     TreeNode LIC = getTreeFromImage(x, y, size/2, im);
     TreeNode RIC = getTreeFromImage(x+(size/2), y, size/2, im);
     TreeNode LSC = getTreeFromImage(x, y+(size/2), size/2, im);
@@ -46,6 +46,6 @@ int main(int argc, char **argv)
     printResult(quad_tree, png_picture);
     cout << endl;
   }
-  
+
   return 0;
 }
